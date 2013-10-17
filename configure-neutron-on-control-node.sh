@@ -50,28 +50,10 @@ EOF
 
 #-------------------------------------------------------------------------------
 
-cat << EOF > /etc/neutron/metadata_agent.ini.changes
-[DEFAULT]
-auth_url = http://$CONTROL_NODE:35357/v2.0
-auth_region = RegionOne
-admin_tenant_name = service
-admin_user = quantum
-admin_password = swordfish
-
-nova_metadata_ip = $CONTROL_NODE
-nova_metadata_port = 8775
-
-metadata_proxy_shared_secret = swordfish
-EOF
-
-#-------------------------------------------------------------------------------
-
 ./merge-config.sh /etc/neutron/neutron.conf /etc/neutron/neutron.conf.changes
 
 ./merge-config.sh /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini \
     /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini.changes
-
-./merge-config.sh /etc/neutron/metadata_agent.ini /etc/neutron/metadata_agent.ini.changes
 
 #-------------------------------------------------------------------------------
 
