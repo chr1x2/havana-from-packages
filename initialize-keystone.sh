@@ -2,25 +2,13 @@
 
 source ./openrc
 
-# Modify these variables as needed
-ADMIN_PASSWORD=${ADMIN_PASSWORD:-swordfish}
+
+ADMIN_PASSWORD=${ADMIN_PASSWORD:-$DEFAULT_PASSWORD}
 SERVICE_PASSWORD=${SERVICE_PASSWORD:-$ADMIN_PASSWORD}
 DEMO_PASSWORD=${DEMO_PASSWORD:-$ADMIN_PASSWORD}
-
-export OS_SERVICE_TOKEN="swordfish"
-export OS_SERVICE_ENDPOINT="http://localhost:35357/v2.0"
-
 SERVICE_TENANT_NAME=${SERVICE_TENANT_NAME:-service}
 
-#
-MYSQL_USER=keystone
-MYSQL_DATABASE=keystone
-MYSQL_HOST=localhost
-MYSQL_PASSWORD=swordfish
-
-#
 KEYSTONE_REGION=RegionOne
-KEYSTONE_HOST=$HOST_IP
 
 
 # Shortcut function to get a newly generated ID
@@ -137,49 +125,49 @@ HEAT_SERVICE=$(keystone service-create \
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $COMPUTE_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':8774/v2/$(tenant_id)s' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':8774/v2/$(tenant_id)s' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':8774/v2/$(tenant_id)s'
+  --publicurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s' \
+  --adminurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s' \
+  --internalurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $VOLUME_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':8776/v1/$(tenant_id)s' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':8776/v1/$(tenant_id)s' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':8776/v1/$(tenant_id)s'
+  --publicurl 'http://'"$CONTROL_NODE"':8776/v1/$(tenant_id)s' \
+  --adminurl 'http://'"$CONTROL_NODE"':8776/v1/$(tenant_id)s' \
+  --internalurl 'http://'"$CONTROL_NODE"':8776/v1/$(tenant_id)s'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $IMAGE_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':9292' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':9292' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':9292'
+  --publicurl 'http://'"$CONTROL_NODE"':9292' \
+  --adminurl 'http://'"$CONTROL_NODE"':9292' \
+  --internalurl 'http://'"$CONTROL_NODE"':9292'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $IDENTITY_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':5000/v2.0' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':35357/v2.0' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':5000/v2.0'
+  --publicurl 'http://'"$CONTROL_NODE"':5000/v2.0' \
+  --adminurl 'http://'"$CONTROL_NODE"':35357/v2.0' \
+  --internalurl 'http://'"$CONTROL_NODE"':5000/v2.0'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $EC2_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':8773/services/Cloud' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':8773/services/Admin' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':8773/services/Cloud'
+  --publicurl 'http://'"$CONTROL_NODE"':8773/services/Cloud' \
+  --adminurl 'http://'"$CONTROL_NODE"':8773/services/Admin' \
+  --internalurl 'http://'"$CONTROL_NODE"':8773/services/Cloud'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $NETWORK_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':9696/' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':9696/' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':9696/'
+  --publicurl 'http://'"$NETWORK_NODE"':9696/' \
+  --adminurl 'http://'"$NETWORK_NODE"':9696/' \
+  --internalurl 'http://'"$NETWORK_NODE"':9696/'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $HEAT_SERVICE \
-  --publicurl 'http://'"$KEYSTONE_HOST"':8004/v1/%(tenant_id)s' \
-  --adminurl 'http://'"$KEYSTONE_HOST"':8004/v1/%(tenant_id)s' \
-  --internalurl 'http://'"$KEYSTONE_HOST"':8004/v1/%(tenant_id)s'
+  --publicurl 'http://'"$CONTROL_NODE"':8004/v1/%(tenant_id)s' \
+  --adminurl 'http://'"$CONTROL_NODE"':8004/v1/%(tenant_id)s' \
+  --internalurl 'http://'"$CONTROL_NODE"':8004/v1/%(tenant_id)s'
 

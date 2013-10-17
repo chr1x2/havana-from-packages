@@ -10,11 +10,11 @@ NETWORK_NODE=localhost
 
 # MySQL location and credentials
 MYSQL_HOST=localhost
-MYSQL_USERNAME=root
+#MYSQL_USERNAME=root
 #MYSQL_PASSWORD=swordfish
 
 # RabbitMQ location and credentials
-RABBITMQ_HOST=
+RABBITMQ_HOST=localhost
 #RABBITMQ_USERNAME=guest
 #RABBITMQ_PASSWORD=guest
 
@@ -23,14 +23,18 @@ DEFAULT_PASSWORD=swordfish
 
 #-------------------------------------------------------------------------------
 
+MYSQL_USERNAME=${MYSQL_USERNAME:-root}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-$DEFAULT_PASSWORD}
+
+RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
+RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
 
 #-------------------------------------------------------------------------------
 
 export OS_TENANT_NAME=admin
 export OS_USERNAME=admin
 export OS_PASSWORD=swordfish
-export OS_AUTH_URL="http://localhost:5000/v2.0/"
-export OS_SERVICE_ENDPOINT="http://localhost:35357/v2.0"
-export OS_SERVICE_TOKEN=swordfish
+export OS_AUTH_URL="http://$CONTROL_NODE:5000/v2.0/"
 
+export OS_SERVICE_ENDPOINT="http://$CONTROL_NODE:35357/v2.0"
+export OS_SERVICE_TOKEN=swordfish
