@@ -9,12 +9,12 @@ COMPUTE_NODE=localhost
 NETWORK_NODE=localhost
 
 # MySQL location and credentials
-MYSQL_HOST=localhost
+#MYSQL_HOST=localhost
 #MYSQL_USERNAME=root
 #MYSQL_PASSWORD=swordfish
 
 # RabbitMQ location and credentials
-RABBITMQ_HOST=localhost
+#RABBITMQ_HOST=localhost
 #RABBITMQ_USERNAME=guest
 #RABBITMQ_PASSWORD=guest
 
@@ -23,9 +23,11 @@ DEFAULT_PASSWORD=swordfish
 
 #-------------------------------------------------------------------------------
 
+MYSQL_HOST=${MYSQL_HOST:-$CONTROL_NODE}
 MYSQL_USERNAME=${MYSQL_USERNAME:-root}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-$DEFAULT_PASSWORD}
 
+RABBITMQ_HOST=${RABBITMQ_HOST:-$CONTROL_NODE}
 RABBITMQ_USERNAME=${RABBITMQ_USERNAME:-guest}
 RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD:-guest}
 
