@@ -125,9 +125,9 @@ HEAT_SERVICE=$(keystone service-create \
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $COMPUTE_SERVICE \
-  --publicurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s' \
-  --adminurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s' \
-  --internalurl 'http://'"$COMPUTE_NODE"':8774/v2/$(tenant_id)s'
+  --publicurl 'http://'"$CONTROL_NODE"':8774/v2/$(tenant_id)s' \
+  --adminurl 'http://'"$CONTROL_NODE"':8774/v2/$(tenant_id)s' \
+  --internalurl 'http://'"$CONTROL_NODE"':8774/v2/$(tenant_id)s'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
