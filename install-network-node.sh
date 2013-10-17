@@ -1,11 +1,13 @@
 #!/bin/bash
 
+set -o errexit
+
 source ./openrc
 
 ./configure-system.sh
 
-./configure-system-at-network-node.sh
+./configure-system-on-network-node.sh
 
-./install-neutron-at-network-node.sh
+./install-neutron-on-network-node.sh
 
-./configure-neutron-at-network-node.sh
+./configure-neutron-on-network-node.sh

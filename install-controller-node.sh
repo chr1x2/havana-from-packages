@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 source ./openrc
 
 ./configure-system.sh
@@ -22,9 +24,9 @@ source ./openrc
 
 ./initialize-glance.sh
 
-./install-compute-controller.sh
+./install-compute-on-control-node.sh
 
-./configure-compute-controller.sh
+./configure-compute-on-control-node.sh
 
 ./install-cinder.sh
 
