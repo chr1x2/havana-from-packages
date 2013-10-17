@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./openrc
+
 #-------------------------------------------------------------------------------
 
 cat << EOF > /etc/glance/glance-api.conf.changes

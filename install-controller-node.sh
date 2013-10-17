@@ -2,7 +2,7 @@
 
 set -o errexit
 
-source ./openrc
+#source ./openrc
 
 ./configure-system.sh
 
