@@ -160,9 +160,9 @@ keystone endpoint-create \
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
   --service-id $NETWORK_SERVICE \
-  --publicurl 'http://'"$NETWORK_NODE"':9696/' \
-  --adminurl 'http://'"$NETWORK_NODE"':9696/' \
-  --internalurl 'http://'"$NETWORK_NODE"':9696/'
+  --publicurl 'http://'"$CONTROL_NODE"':9696/' \
+  --adminurl 'http://'"$CONTROL_NODE"':9696/' \
+  --internalurl 'http://'"$CONTROL_NODE"':9696/'
 
 keystone endpoint-create \
   --region $KEYSTONE_REGION \
