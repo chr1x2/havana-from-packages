@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o errexit
+#set -o errexit
 
 #source ./openrc
 
@@ -31,6 +31,10 @@ set -o errexit
 ./install-cinder.sh
 
 ./configure-cinder.sh
+
+./install-neutron-on-control-node.sh
+
+./configure-neutron-on-control-node.sh
 
 ./install-dashboard.sh
 

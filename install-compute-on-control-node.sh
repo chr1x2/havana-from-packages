@@ -33,4 +33,4 @@ EOF
 
 #-------------------------------------------------------------------------------
 
-cd /usr/share/novnc/include/ && patch -b -p0 < rfb.js.patch
+cd /usr/share/novnc/include/ && patch -b -p0 < rfb.js.patch ||:
