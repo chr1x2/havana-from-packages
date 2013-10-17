@@ -6,7 +6,7 @@ cat << EOF > /etc/glance/glance-api.conf.changes
 [DEFAULT]
 debug = True
 verbose = True
-sql_connection = mysql://glance:swordfish@localhost/glance
+sql_connection = mysql://glance:swordfish@$MYSQL_HOST/glance
 
 [keystone_authtoken]
 admin_tenant_name = service

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 apt-get install --yes \
-	cinder-api \
-	cinder-scheduler \
-	cinder-volume \
-	iscsitarget \
+    cinder-api \
+    cinder-scheduler \
+    cinder-volume \
+    iscsitarget \
     open-iscsi \
     iscsitarget-dkms \
     python-cinderclient \

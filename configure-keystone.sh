@@ -9,7 +9,7 @@ debug = True
 verbose = True
 
 [sql]
-connection = mysql://keystone:swordfish@localhost/keystone
+connection = mysql://keystone:swordfish@$MYSQL_HOST/keystone
 EOF
 
 #-------------------------------------------------------------------------------

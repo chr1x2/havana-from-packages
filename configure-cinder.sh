@@ -4,8 +4,8 @@
 
 cat << EOF > /etc/cinder/cinder.conf.changes
 [DEFAULT]
-sql_connection = mysql://cinder:swordfish@localhost/cinder
-rabbit_password = guest
+sql_connection = mysql://cinder:swordfish@$MYSQL_HOST/cinder
+rabbit_password = $RABBITMQ_PASSWORD
 EOF
 
 #-------------------------------------------------------------------------------

@@ -4,10 +4,10 @@
 
 cat << EOF > /etc/heat/api-paste.ini.changes
 [filter:authtoken]
-auth_host = 127.0.0.1
+auth_host = $CONTROL_HOST
 auth_port = 35357
 auth_protocol = http
-auth_uri = http://127.0.0.1:5000/v2.0
+auth_uri = http://$CONTROL_HOST:5000/v2.0
 admin_tenant_name = admin
 admin_user = admin
 admin_password = swordfish

@@ -1,8 +1,31 @@
 #!/bin/bash
 
-HOST_IP=10.10.10.10
+# This host IP address
+HOST_IP=
 
-MYSQL_PASSWORD=swordfish
+# OpenStack nodes
+CONTROL_NODE=localhost
+COMPUTE_NODE=localhost
+NETWORK_NODE=localhost
+
+# MySQL location and credentials
+MYSQL_HOST=localhost
+MYSQL_USERNAME=root
+#MYSQL_PASSWORD=swordfish
+
+# RabbitMQ location and credentials
+RABBITMQ_HOST=
+#RABBITMQ_USERNAME=guest
+#RABBITMQ_PASSWORD=guest
+
+# Default password
+DEFAULT_PASSWORD=swordfish
+
+#-------------------------------------------------------------------------------
+
+MYSQL_PASSWORD=${MYSQL_PASSWORD:-$DEFAULT_PASSWORD}
+
+#-------------------------------------------------------------------------------
 
 export OS_TENANT_NAME=admin
 export OS_USERNAME=admin
