@@ -41,3 +41,12 @@
 ./install-heat.sh
 
 ./configure-heat.sh
+
+#-------------------------------------------------------------------------------
+
+service rabbitmq-server restart
+service mysql restart
+service keystone restart
+
+./restart-os-services.sh nova
+./restart-os-services.sh neutron

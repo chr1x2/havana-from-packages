@@ -2,6 +2,7 @@
 
 apt-get install --yes \
     openvswitch-switch \
+    openvswitch-datapath-lts-raring-dkms \
     neutron-plugin-openvswitch-agent
 
 service openvswitch-switch start

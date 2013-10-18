@@ -1,6 +1,7 @@
 #!/bin/bash
 
 apt-get install --yes \
+    openvswitch-datapath-lts-raring-dkms \
     neutron-plugin-openvswitch-agent \
     neutron-dhcp-agent \
     neutron-l3-agent

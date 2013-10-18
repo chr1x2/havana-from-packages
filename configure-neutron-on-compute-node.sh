@@ -44,8 +44,12 @@ tunnel_id_ranges = 1:1000
 enable_tunneling = True
 local_ip = $HOST_IP
 
+[agent]
+tunnel_types = gre
+
 [securitygroup]
-firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+firewall_driver = neutron.agent.firewall.NoopFirewallDriver
+#firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
 EOF
 
 #-------------------------------------------------------------------------------

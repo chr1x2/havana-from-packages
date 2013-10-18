@@ -22,6 +22,8 @@ verbose = True
 sql_connection = mysql://nova:swordfish@$MYSQL_HOST/nova
 
 my_ip = $HOST_IP
+rabbit_host = $RABBITMQ_HOST
+rabbit_userid = $RABBITMQ_USERNAME
 rabbit_password = $RABBITMQ_PASSWORD
 auth_strategy = keystone
 
@@ -60,7 +62,7 @@ novnc_enabled = True
 novncproxy_port = 6080
 vncserver_listen = 0.0.0.0
 vncserver_proxyclient_address = $HOST_IP
-novncproxy_base_url = http://$HOST_IP:6080/vnc_auto.html
+novncproxy_base_url = http://$CONTROL_NODE:6080/vnc_auto.html
 EOF
 
 #-------------------------------------------------------------------------------
