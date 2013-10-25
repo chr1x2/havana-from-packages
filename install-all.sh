@@ -30,9 +30,9 @@
 
 ./configure-heat.sh
 
-./install-neutron.sh
+#./install-neutron.sh
 
-./configure-neutron.sh
+#./configure-neutron.sh
 
 ./install-compute.sh
 
